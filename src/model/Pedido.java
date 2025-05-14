@@ -38,7 +38,7 @@ public class Pedido {
         StringBuilder sb = new StringBuilder();
         
         sb.append("Pedido #").append(id).append(" {\n");
-        sb.append("CIENTE:").append(cliente.getNome());
+        sb.append("CIENTE:").append(cliente.getNome()).append("\n");
         sb.append("PRODUTOS: \n");
 
         for (Produto produto : produtos) {

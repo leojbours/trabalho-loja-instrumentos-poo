@@ -23,9 +23,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ControlaPedido controlaPedido = new ControlaPedido();
         ControlaProduto controlaProduto = new ControlaProduto();
         ControlaCliente controlaCliente = new ControlaCliente();
+        ControlaPedido controlaPedido = new ControlaPedido(controlaCliente, controlaProduto);
 
         int opcao;
 
@@ -121,32 +121,32 @@ public class Main {
                     controlaProduto.editar(Entrada.leiaInt("DIGITE O ID DO PRODUTO A SER EDITADO"));
                     break;
                 }
-                
+
                 case 11: {
                     controlaProduto.alterarEstoque(Entrada.leiaInt("DIGITE O ID DO PRODUTO A SER ALTERADO ESTOQUE"));
                     break;
                 }
-                
+
                 case 12: {
                     Pedido pedido = new Pedido(
-                            LocalDate.now(), 
+                            LocalDate.now(),
                             controlaCliente.recuperarPorId(Entrada.leiaInt("DIGITE O ID DO CLIENTE QUE ESTA FAZENDO O PEDIDO")));
-                    
+
                     Character confirmacao;
-                    
+
                     do {
-                        
+
                         Produto produtoTemporario = controlaProduto.recuperarPorId(Entrada.leiaInt("DIGITE O ID DO PRODUTO A SER ADIONADO AO PEDIDO"));
                         int quantidade = Entrada.leiaInt("DIGITE A QUANTIDADE DO PRODUTO");
                         produtoTemporario.setQuantidade(quantidade);
                         controlaProduto.diminuiEstoque(produtoTemporario, quantidade);
                         pedido.adiconaProduto(produtoTemporario);
-                        
+
                         String confirmacaoString = Entrada.leiaString("DESEJA ADICIONAR MAIS UM PRODUTO?");
                         confirmacao = confirmacaoString.trim().toUpperCase().charAt(0);
-                        
+
                     } while (confirmacao != 'N');
-                                        
+
                     controlaPedido.salvar(pedido); //Salva o produto
                     break; //Encerra o case 1
                 }
@@ -176,8 +176,10 @@ public class Main {
                 }
             }
 
-        } while (opcao != 99);
-
+        } while (opcao
+                != 99);
+        
     }
-
+    
+    
 }
