@@ -30,8 +30,8 @@ public class ControlaPedido {
 
     public void salvar(Pedido pedido) {
         pedido.setId(contador);
-        pedidos.add(pedido);
-        contador++;
+        pedidos.add(pedido);  //adiciona ao arraylist
+        contador++;  //aumentar  id
     }
 
     public ArrayList<Pedido> recuperarTodos() {
@@ -66,7 +66,7 @@ public class ControlaPedido {
         char respostaAlteraProdutoChar = respostaAlteraProduto.trim().toUpperCase().charAt(0);
 
         if (respostaAlteraProdutoChar == 'S') {
-            Produto produtoAlterado = controlaProduto.recuperarPorId(Entrada.leiaInt("DIGITE O CODIGO DO PRODUTO A SER MODIFICADO"));
+            Produto produtoAlterado = controlaProduto.recuperarPorId(Entrada.leiaInt("DIGITE O CODIGO DO NOVO PRODUTO"));
             int quantidade = Entrada.leiaInt("DIGITE A NOVA QUANTIDADE DO PRODUTO");
             produtoAlterado.setQuantidade(quantidade);
             pedido.alteraProduto(produtoAlterado);

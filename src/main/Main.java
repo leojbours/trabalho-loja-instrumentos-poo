@@ -53,7 +53,7 @@ public class Main {
                 case 1: {
                     Cliente cliente = new Cliente(
                             Entrada.leiaString("DIGITE O NOME DA PESSOA"),
-                            LocalDate.parse(Entrada.leiaString("DIGITE A DATA DE NASCIMENTO DA PESSOA"), FormatoData.FORMATO_1),
+                            LocalDate.parse(Entrada.leiaString("DIGITE A DATA DE NASCIMENTO DA PESSOA dd/MM/yyyy"), FormatoData.FORMATO_1),
                             Entrada.leiaString("DIGITE O CPF DA PESSOA"),
                             Entrada.leiaString("DIGITE O ENDERECO DA PESSOA"),
                             Entrada.leiaChar("DIGITE O SEXO DA PESSOA")

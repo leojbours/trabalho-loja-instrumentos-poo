@@ -45,8 +45,6 @@ public class ControlaProduto {
             }
         }
         
-        System.out.println(produto);
-        
         return produto;
     }
     

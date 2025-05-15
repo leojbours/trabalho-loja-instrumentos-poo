@@ -15,7 +15,7 @@ public class Produto {
     private String nome;
     private String tipo;
     private Double preco;
-    private int quantidade = 0;
+    private int quantidade = 0; //QUANTIDADE DO PRODUTO NO PEDIDO
     private int quantidadeEstoque;
 
     // Construtor
@@ -27,14 +27,15 @@ public class Produto {
     }
     
     @Override
-    public String toString() {
+    public String toString() {  //leonardo fez esta parte\\
         StringBuilder sb = new StringBuilder();
+//        String teste = "PRODUTO ID #" + id + " {\n";
         sb.append("PRODUTO ID #").append(id).append(" {\n");
         sb.append("Nome: ").append(nome).append("\n");
         sb.append("Tipo: ").append(tipo).append("\n");
         sb.append("Preco: ").append(String.format("%.2f", preco)).append("\n");
         sb.append("Quantidade em estoque: ").append(quantidadeEstoque).append("\n");
-        sb.append("Valor total em estoque: ").append(valorEmEstoque()).append("\n");
+        sb.append("Valor total em estoque: ").append(String.format("%.2f", valorEmEstoque())).append("\n");
         sb.append("}\n");
         
         return sb.toString();

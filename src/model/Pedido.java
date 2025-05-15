@@ -35,7 +35,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(); //leonardo fez testa parte
         
         sb.append("Pedido #").append(id).append(" {\n");
         sb.append("CIENTE:").append(cliente.getNome()).append("\n");
