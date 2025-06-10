@@ -20,9 +20,18 @@ public class ControlaCliente {
     
     int contador = 1;
     
+    private static ControlaCliente instance;
+    
+    public static ControlaCliente getInstance() {
+        if (instance == null) {
+            instance = new ControlaCliente();
+        }
+        return instance;
+    }
+    
     public void salvar(Cliente cliente) {
         cliente.setId(contador);
-        clientes.add(cliente); //adciona pessoa no array
+        clientes.add(cliente); //adiciona pessoa no array
         contador++;
     }
     

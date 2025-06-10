@@ -18,12 +18,16 @@ import resources.FormatoData;
 public class ControlaPedido {
 
     ArrayList<Pedido> pedidos = new ArrayList<>();
-    ControlaCliente controlaCliente = null;
-    ControlaProduto controlaProduto = null;
-
-    public ControlaPedido(ControlaCliente controlaCliente, ControlaProduto controlaProduto) {
-        this.controlaCliente = controlaCliente;
-        this.controlaProduto = controlaProduto;
+    ControlaCliente controlaCliente = ControlaCliente.getInstance();
+    ControlaProduto controlaProduto = ControlaProduto.getInstance();
+    
+    private static ControlaPedido instance;
+    
+    public static ControlaPedido getInstance() {
+        if (instance == null) {
+            instance = new ControlaPedido();
+        }
+        return  instance;
     }
 
     int contador = 1;

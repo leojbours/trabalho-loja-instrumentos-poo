@@ -25,7 +25,7 @@ public class Main {
 
         ControlaProduto controlaProduto = new ControlaProduto();
         ControlaCliente controlaCliente = new ControlaCliente();
-        ControlaPedido controlaPedido = new ControlaPedido(controlaCliente, controlaProduto);
+        ControlaPedido controlaPedido = new ControlaPedido();
 
         int opcao;
 
@@ -132,7 +132,7 @@ public class Main {
                             LocalDate.now(),
                             controlaCliente.recuperarPorId(Entrada.leiaInt("DIGITE O ID DO CLIENTE QUE ESTA FAZENDO O PEDIDO")));
 
-                    Character confirmacao;
+                    char confirmacao;
 
                     do {
 

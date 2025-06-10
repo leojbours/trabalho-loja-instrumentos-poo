@@ -17,6 +17,15 @@ public class ControlaProduto {
     ArrayList<Produto> produtos = new ArrayList<>();
     int contador = 1;
     
+    private static ControlaProduto instance;
+    
+    public static ControlaProduto getInstance() {
+        if (instance == null) {
+            instance = new ControlaProduto();
+        }
+        return instance;
+    }
+    
     public void alterarEstoque(int id) {
         Produto produto = recuperarPorId(id);
         produto.setQuantidadeEstoque(Entrada.leiaInt("DIGITE O NOVO VALOR EM ESTOQUE"));
